@@ -40,19 +40,24 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	public function feed($user_id){
 		// returns JSON to the user with a list of videos to watch
 		// every request gives a new list with 200 unique and new items - no video is given more than once
-		// e.g.:
-		// [
-		//		{"url": "http://videoviewer.com/videos/so_cute_kittens.mp4", "timer": 80}, 
-		//		{"url": "http://videoviewer.com/videos/my_pink_unicorns.mp4", "timer": 160},
-		//		{"url": "http://videoviewer.com/videos/mariah_carey_forever_and_ever.mp4", "timer": 44},
-		//		{"url": "http://videoviewer.com/videos/entangled_vs_frozen.mp4", "timer": 88}
-		// ]
+		
+		// just for example:
+		
+		$json = [
+				// ...
+				{"url": "http://videoviewer.com/videos/so_cute_kittens.mp4", "timer": 80}, 
+				{"url": "http://videoviewer.com/videos/my_pink_unicorns.mp4", "timer": 160},
+				{"url": "http://videoviewer.com/videos/mariah_carey_forever_and_ever.mp4", "timer": 44},
+				{"url": "http://videoviewer.com/videos/entangled_vs_frozen.mp4", "timer": 88}
+		];
 		
 		echo $json;
 	}
 	
 	public function fulfill($session_id, $user_id){
 		// gets executed everytime a user watches a video to the end
+		
+		$is_error = false;
 		
 		// INTERACTION WITH MYSQL 2
 		
@@ -68,9 +73,14 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		// to watch more videos
 		// for every closed session the user gets 1$
 		
+		$is_error = false;
+		
 		// INTERACTION WITH MYSQL 3
 		
-		$this->send_user_money();
+		if ($is_error)
+			die("0");
+		
+		echo $this->send_user_money() ? "1" : "0";
 	}
 	
 	private function log_ip_action(){ 
@@ -83,6 +93,10 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	
 	private function send_user_money(){
 		// INTERACTION WITH 3rd PARTY SERVER
+		
+		$is_ok = true;
+		
+		return $is_ok;
 	}
 }
 
@@ -95,6 +109,7 @@ $controller = "VideoViewerV1Impl";
 
 $reflectionMethod = new ReflectionMethod($controller, $method);
 $reflectionMethod->invokeArgs(new $controller(), $params);
+
 
 
 
