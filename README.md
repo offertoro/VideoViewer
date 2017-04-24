@@ -10,6 +10,7 @@ Definitions:
 
 Questions:
 1. Please write a simple JS library to interact with the php server side. JS flavor can be either JQuery or Vanilla (no JS framework). Bootstrap is optional. No design is needed - simple strings with current state are recommended, e.g: "Session was created successfully! Now showing video 1 out of 20". The protocol for interaction between the VideoViewer client and server is dictated by the VideoViewerV1 interface:
+
   I. Optional - the user receives the HTML of the offer with "index"
   II. The user requests "create_session" to create a server side session.
   III. The user requests "feed" to populate an internal list of videos. Each video in the list has a timer which corresponds to the number of seconds the user must view the video before the user can user "fulfill" to notify the server that a video was watched, before going to the next video. Once the a video was watched it is removed from the internal list. If the internal list is empty the client should request "feed" again to repopulate the list.
