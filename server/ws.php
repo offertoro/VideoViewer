@@ -82,7 +82,7 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	}
 	
 	private function send_user_money(){
-		// INTERACTION WITH 3rd PARTY SERVER 2
+		// INTERACTION WITH 3rd PARTY SERVER
 	}
 }
 
@@ -95,6 +95,8 @@ $controller = "VideoViewerV1Impl";
 
 $reflectionMethod = new ReflectionMethod($controller, $method);
 $reflectionMethod->invokeArgs(new $controller(), $params);
+
+
 
 
 
