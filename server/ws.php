@@ -6,6 +6,7 @@
 
 interface VideoViewerV1 {
 	public function index($user_id);
+	public function create_session($user_id);
 	public function feed($user_id);
 	public function fulfill($session_id, $user_id);
 	public function close_session($session_id, $user_id);
@@ -45,7 +46,7 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		
 		$json = [
 				// ...
-				{"url": "http://videoviewer.com/videos/so_cute_kittens.mp4", "timer": 80}, 
+				{"url": "http://videoviewer.com/videos/so_cute_kittens_adorable.mp4", "timer": 80}, 
 				{"url": "http://videoviewer.com/videos/my_pink_unicorns.mp4", "timer": 160},
 				{"url": "http://videoviewer.com/videos/mariah_carey_forever_and_ever.mp4", "timer": 44},
 				{"url": "http://videoviewer.com/videos/entangled_vs_frozen.mp4", "timer": 88}
