@@ -4,7 +4,7 @@ VideoViewer is a test repo designed to present questions for a job interview.
 The system let a user view 20 videos and then pays the user 1$ for watching all of them.
 The server side is implemented in php/mysql and client side in HTML/JS and also in Android as a native app.
 
-Definitions:
+## Definitions:
 * The VideoViewer server endpoint is at: http://videoviewer.com/ws.php
 * The VideoViewer HTML client side endpoint should be at: http://videoviewer.com/index.php
 * The VideoViewerV1 interface for client-server interaction:
@@ -14,7 +14,5 @@ Definitions:
   4. When the user is sure 20 videos were watched it requests "close_session" to close the current session and pay.
   5. The user may request "create_session" again to start another session and use its already populated internal list to continue watching videos.
 
-
-
-Questions:
-1. Please write a simple JS library to interact with the php server side. JS flavor can be either JQuery or Vanilla (no JS framework). Bootstrap is optional. No design is needed - simple strings with current state are recommended, e.g: "Session was created successfully! Now showing video 1 out of 20". The protocol for interaction between the VideoViewer client and server is dictated by the VideoViewerV1 interface:
+## Questions:
+1. Please write a simple JS library to interact with the php server side. JS flavor can be either JQuery or Vanilla (no JS framework). Bootstrap is optional. No design is needed - simple strings with current state are recommended, e.g: "Session was created successfully! Now showing video 1 out of 20". The VideoViewer client-server protocol for interaction is dictated by the VideoViewerV1 interface.
