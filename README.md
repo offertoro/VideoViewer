@@ -6,7 +6,7 @@ The server side is implemented in php/mysql and client side in HTML/JS and also 
 
 ## Definitions:
 * The VideoViewer server endpoint is at: http://videoviewer.com/ws.php
-* The VideoViewer HTML client side endpoint should be at: http://videoviewer.com/index.php
+* The VideoViewer HTML client side endpoint is at: http://videoviewer.com/index.php
 * The VideoViewerV1 interface for client-server interaction:
   1. Optional - the user receives the HTML of the offer with "index".
   2. The user requests "create_session" to create a server side session.
