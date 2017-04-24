@@ -7,7 +7,7 @@ The server side is implemented in php/mysql and client side in HTML/JS and also 
 ## Definitions:
 * The VideoViewer server endpoint is at: http://videoviewer.com/ws.php
 * The VideoViewer HTML client side endpoint is at: http://videoviewer.com/index.php
-* The VideoViewerV1 interface for client-server interaction:
+* The VideoViewerV1 interface for client-server interaction is defined in the server php file:
   1. Optional - the user receives the HTML of the offer with "index" (not in Android).
   2. The user requests "create_session" to create a server side session.
   3. The user requests "feed" to populate an internal list of videos. Each video in the list has a timer which corresponds to the number of seconds the user must view the video before the user can user "fulfill" to notify the server that a video was watched, before going to the next video. Once the a video was watched it is removed from the internal list. If the internal list is empty the client should request "feed" again to repopulate the list.
