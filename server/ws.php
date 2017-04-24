@@ -33,7 +33,9 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		// if the user already has an open session then its session_id is returned
 		// otherwise a new session is created and its session_id is returned
 		
-		// INTERACTION WITH MYSQL 1
+		$session_id = 0;
+		
+		// INTERACTION WITH MYSQL 1 - fetch real session_id
 		
 		echo $session_id;
 	}
