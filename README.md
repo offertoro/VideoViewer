@@ -1,10 +1,10 @@
-# VideoViewer - Part I
+# VideoViewer
 
 The VideoViewer system is a test repo created to test candidates in the process of a job interview.
 The system lets a user watch 20 videos and then pays the user 1$ for watching them. The system may pay additional 1$ for every 20 videos watched by the user.
 The server side is implemented in php/mysql and client side in HTML/JS and also in Android/iOS as a native app.
 
-## Definitions - Part I:
+## Definitions:
 * The VideoViewer server endpoint is at: http://videoviewer.com/ws.php (not really)
 * The VideoViewer HTML client side endpoint is at: http://videoviewer.com/index.php (not really)
 * The VideoViewerV1 interface for client-server interaction is defined in the server php file:
