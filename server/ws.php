@@ -25,7 +25,7 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		die();
 	}	
 	
-	public function index($user_id){
+	private function index($user_id){
 		echo $this->html($user_id);
 	}
 	
@@ -90,12 +90,13 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	
 	private function html($user_id){ 
 		// returns generic html from external file
+		return "<html>bla</html>";
 	}
 	
 	private function send_user_money(){
-		// INTERACTION WITH 3rd PARTY SERVER
-		
 		$is_ok = true;
+
+		// INTERACTION WITH 3rd PARTY SERVER
 		
 		return $is_ok;
 	}
