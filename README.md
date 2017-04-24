@@ -15,4 +15,5 @@ The server side is implemented in php/mysql and client side in HTML/JS and also 
   5. The user may request "create_session" again to start another session and use its already populated internal list to continue watching videos.
 
 ## Questions:
-1. Please write a simple JS library to interact with the php server side. JS flavor can be either JQuery or Vanilla (no JS framework). Bootstrap is optional. No design is needed - simple strings with current state are recommended, e.g: "Session was created successfully! Now showing video 1 out of 20". The VideoViewer client-server protocol for interaction is dictated by the VideoViewerV1 interface.
+1. The server side php file has some errors - please fix them.
+2. Please write a simple JS library to interact with the php server side. JS flavor can be either JQuery or Vanilla (no JS framework). Bootstrap is optional. No design is needed - simple strings with current state are recommended, e.g: "Session was created successfully! Now showing video 1 out of 20". The VideoViewer client-server protocol for interaction is dictated by the VideoViewerV1 interface.
