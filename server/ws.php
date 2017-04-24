@@ -6,6 +6,7 @@
 
 interface VideoViewerV1 {
 	public function index($user_id);
+	public function feed($user_id);
 	public function fulfill($session_id, $user_id);
 	public function close_session($session_id, $user_id);
 }
@@ -34,6 +35,20 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		// INTERACTION WITH MYSQL 1
 		
 		echo $session_id;
+	}
+	
+	public function feed($user_id){
+		// returns JSON to the user with a list of videos to watch
+		// every request gives a new list with 200 unique and new items - no video is given more than once
+		// e.g.:
+		// [
+		//		{"url": "http://videoviewer.com/videos/so_cute_kittens.mp4", "timer": 80}, 
+		//		{"url": "http://videoviewer.com/videos/my_pink_unicorns.mp4", "timer": 160},
+		//		{"url": "http://videoviewer.com/videos/mariah_carey_forever_and_ever.mp4", "timer": 44},
+		//		{"url": "http://videoviewer.com/videos/entangled_vs_frozen.mp4", "timer": 88}
+		// ]
+		
+		echo $json;
 	}
 	
 	public function fulfill($session_id, $user_id){
@@ -67,7 +82,7 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	}
 	
 	private function send_user_money(){
-		// INTERACTION WITH 3rd PARTY SERVER
+		// INTERACTION WITH 3rd PARTY SERVER 2
 	}
 }
 
