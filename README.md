@@ -4,7 +4,7 @@ The VideoViewer system is a test repo created to test candidates in the process 
 The system lets a user watch 20 videos and then pays the user 1$ for watching them. The system may pay additional 1$ for every 20 videos watched by the user.
 The server side is implemented in php/mysql and client side in HTML/JS and also in Android/iOS as a native app.
 
-## Definitions:
+## Definitions - Part I:
 * The VideoViewer server endpoint is at: http://videoviewer.com/ws.php (not really)
 * The VideoViewer HTML client side endpoint is at: http://videoviewer.com/index.php (not really)
 * The VideoViewerV1 interface for client-server interaction is defined in the server php file:
@@ -14,7 +14,7 @@ The server side is implemented in php/mysql and client side in HTML/JS and also 
   4. When the user is sure 20 videos were watched it requests "close_session" to close the current session and make the payment.
   5. The user may request "create_session" again to start another session and use its already populated internal list to continue watching videos.
 
-## Questions:
+## Questions - Part I:
 1. The server side php file has some errors - please fix them. All methods in the VideoViewerV1 interface must be exposed and invokable by a client. The implementation in the server file MUST NOT trigger any errors.
 2. Please write a **simple** JS library to interact with the php server. JS flavor can be either JQuery or Vanilla (no JS framework). Bootstrap is optional. No design is needed - simple strings with current state are recommended, e.g: "Session was created successfully! Now showing video 1 out of 20". The VideoViewer client-server protocol for interaction is dictated by the VideoViewerV1 interface.
 3. Please write a **simple** Android Java app with minimal design. The first step in the client-server interaction (fetching HTML) is not necessary. The video should be played inside the app. The VideoViewer client-server protocol for interaction is dictated by the VideoViewerV1 interface.
