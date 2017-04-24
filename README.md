@@ -1,4 +1,4 @@
-# VideoViewer
+# VideoViewer - Part I
 
 The VideoViewer system is a test repo created to test candidates in the process of a job interview.
 The system lets a user watch 20 videos and then pays the user 1$ for watching them. The system may pay additional 1$ for every 20 videos watched by the user.
