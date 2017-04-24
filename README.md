@@ -21,3 +21,6 @@ The server side is implemented in php/mysql and client side in HTML/JS and also 
 4. Please write a **simple** iOS Objective-C app with minimal design. The first step in the client-server interaction (fetching HTML) is not necessary. The video should be played inside the app.
 
 Please answer question 3 OR question 4.
+All files (including fixed php file) should be sent to babin@offertoro.com
+
+Thank you and good luck!
