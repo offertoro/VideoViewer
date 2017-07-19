@@ -16,7 +16,7 @@ For tier 1 data, PK columns must be defined appropriately in order to set a high
 Tier 2 data tables, should also have some PK. Trying to avoid an INT with AUTO INCREMENT here too because INTs (unsigned bigints as well) reach their maximum. Well.. eventually. Some other information is required here for uniqueness, preferably a number and not a string (string manipulations cost much more cpu). To retain some degree of control over the cardinality of this db table (tier 2) we
 must DELETE outdated information from it. Maybe even pass it on to tier 3 systems before removing them completely.
 
-In our example tier 3 data is kept on a remote server (so no need to define it here). Our local mysql db should hold only tier 1 and 2 data.
+In our example tier 3 data is kept on a remote server (so no need to define it here). Our local mysql db should hold only tier 1 and tier 2 data.
 
 Some statements about VideoViewer's user sessions:
 * only one session can be opened per ip at the same time.
