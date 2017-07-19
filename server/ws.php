@@ -42,8 +42,9 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	public function feed($user_id){
 		// returns JSON to the user with a list of videos to watch
 		// every request gives a new list with 200 unique and new items - no video is given more than once
+		// timer is in seconds
 		
-		// just for example:
+		// for example:
 		
 		$json = [
 				// ...
