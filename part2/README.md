@@ -12,7 +12,7 @@ Tier 3 data systems can be developed as an operational historian software, like 
 
 Tier 2 data is somewhere in between. Should feel comfortable with lots of INSERTs and also some degree of SELECTs, but cardinality in this tier should be defined and maintained with care, as to prevent I/O blocking, especially when the db is disk-persistent like mysql (innodb/myisam).
 
-For tier 1 data, PK columns must be defined appropriately in order to set a high bound for cardinality and make it finite. Using an INT column with AUTO_INCREMENT is a bad idea. Instead, if we already know that each ip (in the world) can have only one open session (concurrently) then maybe using the ip itself as the PK column might not be a bad idea. Should the ip be saved as string?
+For tier 1 data, PK columns must be defined appropriately in order to set a high bound for cardinality and make it finite. Using an INT column with AUTO_INCREMENT is a bad idea. Instead, if we already know that each ip (in the world) can have only one open session (concurrently) then maybe using the ip itself as the PK column might not be a bad idea.
 
 Tier 2 data tables, should also have some PK. Trying to avoid an INT with AUTO INCREMENT here too because INTs (unsigned bigints as well) reach their maximum. Well.. eventually. Some other information is required here for uniqueness, preferably a number and not a string (string manipulations cost much more cpu).
 
