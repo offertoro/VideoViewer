@@ -14,6 +14,6 @@ The server side is implemented in php/mysql and client side in HTML/JS and also 
   4. When the user is sure 20 videos were watched it requests "close_session" to close the current session and make the payment to the user.
   5. The user may request "create_session" again to start another session and use its already populated internal list to continue watching videos.
 
-All files (including fixed php file) should be sent to babin@offertoro.com
+All files should be sent to babin@offertoro.com
 
 Thank you and good luck!
