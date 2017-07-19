@@ -27,7 +27,7 @@ Some statements about VideoViewer's user sessions:
 * every ip is allowed to open only 15 sessions per day. once 15 sessions were closed for that ip, no more sessions can be opened that day.
 * there must be a way to set a total number of sessions per day for all users. a user may not open a session if the total number of closed sessions for that day is reached - even if the user didn't reach its own 15 sessions per day.
 * every video has a global unique id
-
+ 
 
 ## Questions:
 1. The server side php file has some errors - please fix them. All methods in the VideoViewerV1 interface must be exposed and invokable by a client. The implementation in the server file MUST NOT trigger any error.
