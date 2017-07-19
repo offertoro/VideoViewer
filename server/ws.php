@@ -43,18 +43,40 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		// returns JSON to the user with a list of videos to watch
 		// every request gives a new list with 200 unique and new items - no video is given more than once
 		// timer is in seconds
+
+		// videos generator:
 		
-		// for example:
+		$popular_vid_names = array(
+			"so_cute_kittens_adorable",
+			"my_pink_unicorns",
+			"mariah_carey_forever_and_ever",
+			"entangled_vs_frozen",
+			"simba_and_nala_and_me",
+			"p_s_i_love_you_too",
+			"leonardo_dicaprio_incessantly",
+			"jumpback_mountain"
+		);
+		$vid_count = count($popular_vid_names);
+		$vid_name_id = 0;
+
+		$vids = array();
+		for ($i=0; $i<200; $i++, $vid_name_id++){
+			
+			$rand_val = mt_rand(0, 2147483647);
+			$timer = mt_rand(10, 100);
+			
+			$vid_id = md5(microtime() . $rand_val . $timer);
+
+			if ($vid_name_id >= $vid_count)
+				$vid_name_id = 0;
+			
+			$vid_url = $popular_vid_names[$vid_name_id] . "_" . $vid_id;
 		
-		$json = [
-				// ...
-				{"id": 1, "url": "http://videoviewer.com/videos/so_cute_kittens_adorable.mp4", "timer": 80}, 
-				{"id": 2, "url": "http://videoviewer.com/videos/my_pink_unicorns.mp4", "timer": 160},
-				{"id": 3, "url": "http://videoviewer.com/videos/mariah_carey_forever_and_ever.mp4", "timer": 44},
-				{"id": 4, "url": "http://videoviewer.com/videos/entangled_vs_frozen.mp4", "timer": 88}
-		];
+			$vids[] = array("id" => $vid_id, "url" => $vid_url, "timer" => $timer);
+		}
 		
-		echo $json;
+		header('Content-type: application/json');
+		echo json_encode($vids);
 	}
 	
 	public function fulfill($session_id, $user_id){
@@ -97,11 +119,14 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	}
 	
 	private function send_user_money(){
-		$is_ok = true;
+		$is_error = false;
 
 		// INTERACTION WITH 3rd PARTY SERVER
 		
-		return $is_ok;
+		if ($is_error)
+			die("0");
+		
+		die("1");
 	}
 }
 
