@@ -1,4 +1,4 @@
-We need to build a mysql db to hold all data. We would like to segregate the data itslef into different tiers of availability:
+We need to build a mysql db to hold most of the data. We would like to segregate it into different tiers of availability:
 
 * Tier 1 - Highest availability as this data is accessed very frequently. Data is best to be managed directly on RAM.
 * Tier 2 - Medium availability. This data is not accessed all the time but still needs to be available for fast access. Best managed on SSD.
