@@ -1,5 +1,4 @@
 We need to build a mysql db to hold most of the data. We would like to segregate it into different tiers of availability:
-
 * Tier 1 - Highest availability as this data is accessed very frequently. Data is best to be managed directly on RAM.
 * Tier 2 - Medium availability. This data is not accessed all the time but still needs to be available for fast access. Best managed on SSD.
 * Tier 3 - Low availability. This data is accessed by an internal analyst. Sometimes. Best managed on magnetic disks.
@@ -17,14 +16,16 @@ For tier 1 data, PK columns must be defined appropriately in order to set a high
 Tier 2 data tables, should also have some PK. Trying to avoid an INT with AUTO INCREMENT here too because INTs (unsigned bigints as well) reach their maximum. Well.. eventually. Some other information is required here for uniqueness, preferably a number and not a string (string manipulations cost much more cpu). To retain some degree of control over the cardinality of this db table (tier 2) we
 must DELETE outdated information from it. Maybe even pass it on to tier 3 systems before removing them completely.
 
-In our example tier 3 data is kept on a remote server. Our local mysql db should hold only tier 1 and 2 data.
+In our example tier 3 data is kept on a remote server (so no need to define it here). Our local mysql db should hold only tier 1 and 2 data.
 
 Some statements about VideoViewer's user sessions:
-* only one session can be opened per ip at the same time
-* a user session remains open for only 3 hours
-* there must be a way to manually close a user's session without waiting for 3 hours
-* what happens if the user requests 
-
+* only one session can be opened per ip at the same time.
+* a user session remains open for only 3 hours.
+* there must be a way to manually close a user's session without waiting for 3 hours.
+* if the user requests "fulfill" before time is up for the video then nothing happens.
+* a user must view the videos ONE AT A TIME in order to get paid. openning another client app from another computer under the same ip should not close the session sooner than expected.
+* every ip is allowed to open only 15 sessions per day.
+* there must be a way to set a total number of sessions per day for all users. a user may not open another session if the total number of closed sessions for that day is reached - even if the user didn't reach its own 15 allowed sessions per day.
 
 
 ## Questions:
