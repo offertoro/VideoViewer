@@ -1,9 +1,9 @@
 We need to build a mysql db to hold all data. In this project we would like to segregate the data itslef into different tiers of availability.
 
 Availability Levels:
-Tier 1 - Highest availability as this data is accessed very frequently. Data is best to be managed directly on RAM.
-Tier 2 - Medium availability. This data is not accessed all the time but still needs to be available for fast access. Best managed on SSD.
-Tier 3 - Low availability. This data is accessed by an internal analyst. sometimes. Best managed on magnetic disks.
+* Tier 1 - Highest availability as this data is accessed very frequently. Data is best to be managed directly on RAM.
+* Tier 2 - Medium availability. This data is not accessed all the time but still needs to be available for fast access. Best managed on SSD.
+* Tier 3 - Low availability. This data is accessed by an internal analyst. sometimes. Best managed on magnetic disks.
 
 We will try to segregate user sessions into these 3 tiers, which should be reflected in the db schema definition.
 As tier 1 data tends to hold little information (less than 100MB in our project) with a low and finite cardinality, tier 3 has essentially infinite cardinality therefore should be saved on low cost magnetic disks.
