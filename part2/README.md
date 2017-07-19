@@ -7,7 +7,6 @@ We need to build a mysql db to hold most of the data. We would like to segregate
 We will try to segregate user sessions into these 3 tiers, which should be reflected in the db schema definition.
 As tier 1 data tends to hold little information (less than 100MB in our project) with a low and finite cardinality, tier 3 has essentially infinite cardinality therefore should be saved on low cost magnetic disks.
 In order to maintain low cardinality in tier 1 data, we need to estimate it beforehand to maximize SELECTs and UPDATEs and minimize INSERTs and DELETEs.
-
 Tier 3 data systems can be developed as an operational historian software, like logstash, processing thousands of events per second, dividing the data further into sub tiers of availability (AWS Glacier as tier 4 data?). We would prefer mostly INSERTs on this tier, as data is likely to be saved in a time-series fashion (like an event).
 
 Tier 2 data is somewhere in between. Should feel comfortable with lots of INSERTs and also some degree of SELECTs, but cardinality in this tier should be defined and maintained with care, as to prevent I/O blocking, especially when the db is disk-persistent like mysql (innodb/myisam).
