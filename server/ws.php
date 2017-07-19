@@ -10,6 +10,7 @@ interface VideoViewerV1 {
 	public function feed($user_id);
 	public function fulfill($session_id, $user_id);
 	public function close_session($session_id, $user_id);
+	public function fetch_last_user_watched_vids($user_id);
 }
 
 class VideoViewerV1Impl implements VideoViewerV1 {
