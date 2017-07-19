@@ -70,8 +70,8 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	}
 	
 	public function create_session($user_id){
-		// if the user already has an open session then its session_id is returned
-		// otherwise a new session is created and its session_id is returned
+		// if the user already has an open session then its session_id is used
+		// otherwise a new session is created with a new session_id
 
 		// $_POST contains the properties of the first video to watch (received earlier with "feed")
 		// INTERACTION WITH MYSQL 1 - fetch saved session_id or create a new session_id
@@ -80,7 +80,7 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	}
 	
 	public function fulfill($session_id, $user_id){
-		// gets executed everytime a user watches a video to the end
+		// user is requesting "fulfill" everytime it finishes watching a video to the end
 		
 		$is_error = false;
 
