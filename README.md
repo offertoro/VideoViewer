@@ -4,6 +4,8 @@ The VideoViewer system is a test repo created to test candidates in the process 
 The system lets a user watch 20 videos and then pays the user 1$ for watching them. The system may pay an additional 1$ for every 20 videos watched by the user.
 The server side is implemented in php/mysql and client side in HTML/JS and also in Android or iOS as a native app.
 
+There are two parts to this test. Please provide a solution to the part you've been tasked to complete.
+
 ## Definitions:
 * The VideoViewer server endpoint is at: http://videoviewer.com/ws.php (not really)
 * The VideoViewer HTML client side endpoint is at: http://videoviewer.com/index.php (not really)
