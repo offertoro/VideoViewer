@@ -1,6 +1,5 @@
-We need to build a mysql db to hold all data. In this project we would like to segregate the data itslef into different tiers of availability.
+We need to build a mysql db to hold all data. We would like to segregate the data itslef into different tiers of availability:
 
-Availability Levels:
 * Tier 1 - Highest availability as this data is accessed very frequently. Data is best to be managed directly on RAM.
 * Tier 2 - Medium availability. This data is not accessed all the time but still needs to be available for fast access. Best managed on SSD.
 * Tier 3 - Low availability. This data is accessed by an internal analyst. sometimes. Best managed on magnetic disks.
