@@ -27,7 +27,8 @@ Some statements about VideoViewer's user sessions:
 * every ip is allowed to open only 15 sessions per day. once 15 sessions were closed for that ip, no more sessions can be opened that day.
 * there must be a way to set a total number of sessions per day for all users. a user may not open a session if the total number of closed sessions for that day is reached - even if the user didn't reach its own 15 sessions per day.
 * every video has a global unique id
- 
+* the user must send the next video object it is going to watch (properties "id", "url", "timer" fetched earlier via the "feed" request) to "create_session". every new session must be initialized with the first video the user is going to watch. the video can be "fulfilled" once its "timer" has passed since the session was created.
+* the user must send the next video object it is going to watch to "fulfill". the next video can be "fulfilled" once its "timer" has passed since the last "fulfill". for example - the user has just finished watching video1 and trying to "fulfill". When requesting "fulfill" on video1 the user must also provide the details of the next video (video2 with "timer" set to 30 secs) it is about to watch. the user can "fulfill" video2 only 30 seconds after it has requested "fulfill" the last time (on video1).
 
 ## Questions:
 1. The server side php file has some errors - please fix them. All methods in the VideoViewerV1 interface must be exposed and invokable by a client. The implementation in the server file MUST NOT trigger any error.
