@@ -24,14 +24,14 @@ Some statements about VideoViewer's user sessions:
 * there must be a way to manually close a user's session without waiting for 3 hours.
 * if the user requests "fulfill" before the time is up for the video then nothing happens (it doesn't "fulfill"). The same goes for "close_session".
 * a user must view the videos ONE AT A TIME in order to get paid. opening another client app from another computer under the same ip should not allow closing the session sooner than expected (nor paying the user).
-* every ip is allowed to open only 15 sessions per day. once 15 sessions were already closed for that ip, no more sessions can be opened that day.
-* there must be a way to set a total number of sessions per day for all users. a user may not open a session if the total number of closed sessions for that day is reached - even if the user didn't reach its own 15 sessions per day. Please try to avoid doing a SELECT COUNT(&#42;).
+* every ip is allowed to open only 15 sessions per day. once 15 sessions were already closed for that ip, no more sessions can be opened that day. Please try to avoid doing a SELECT COUNT(&#42;) - using a mysql compound unique key on current day and user_id can go a long way.
+* there must be a way to set a total number of sessions per day for all users. a user may not open a session if the total number of closed sessions for that day is reached - even if the user didn't reach its own 15 sessions per day.
 * every video has a global unique id
 * the user must send the next video object it is going to watch (properties "id", "url", "timer" fetched earlier via the "feed" request) to "create_session". every new session must be initialized with the first video the user is going to watch. the first video can be "fulfilled" once its "timer" has passed since the session was created.
 * the user must pass the next video object it is going to watch to the "fulfill" request. a video can be "fulfilled" once its "timer" has passed since the last "fulfill". for example - the user has just finished watching video1 and trying to "fulfill". When requesting "fulfill" on video1 the user must also provide the details of the next video (video2 with "timer" set to 30 secs) it is about to watch. the user can "fulfill" video2 only 30 seconds after it has requested "fulfill" the last time (on video1).
 * the last "fulfill" in the session doesn't have to contain an object to the next video.
 * the user must request "close_session" after the last "fulfill" was requested to effectively close the session and (maybe) pay the user.
-* the system saves information about all videos every user watched ONLY in the last 24 hours [tier 2]
+* the system saves information about all videos every user watched in the last 24 hours prior to the request. AT ANY GIVEN TIME the system should be able to detail all videos the user had seen in the last 24 hours until that time. meaning that information which is older than 24 hours should be removed periodically [tier 2].
 
 ## Questions:
 1. The server side php file has some errors - please fix them. All methods in the VideoViewerV1 interface must be exposed and invokable by a client. The implementation in the server file MUST NOT trigger any error.
