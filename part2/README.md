@@ -22,7 +22,7 @@ Some statements about VideoViewer's user sessions:
 * only one session can be opened per ip at the same time.
 * a user session remains open for only 3 hours.
 * there must be a way to manually close a user's session without waiting for 3 hours.
-* if the user requests "fulfill" before time is up for the video then nothing happens.
+* if the user requests "fulfill" before time is up for the video then nothing happens (it doesn't "fulfill").
 * a user must view the videos ONE AT A TIME in order to get paid. openning another client app from another computer under the same ip should not close the session sooner than expected.
 * every ip is allowed to open only 15 sessions per day.
 * there must be a way to set a total number of sessions per day for all users. a user may not open another session if the total number of closed sessions for that day is reached - even if the user didn't reach its own 15 allowed sessions per day.
