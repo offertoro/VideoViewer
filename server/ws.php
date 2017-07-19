@@ -44,7 +44,8 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 			"simba_and_nala_and_me",
 			"p_s_i_love_you_too",
 			"leonardo_dicaprio_incessantly",
-			"jumpback_mountain"
+			"jumpback_mountain",
+			"dancing_lovely_ponies"
 		);
 		$vid_count = count($popular_vid_names);
 		$vid_name_id = 0;
@@ -97,7 +98,7 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		// gets executed everytime a user finishes watching all videos in a session (20 videos)
 		// after executing this method the session is closed, so the user has to open a new session
 		// to watch more videos
-		// for every closed session the user gets 1$
+		// for every closed session (properly) the user gets 1$
 		
 		$is_error = false;
 		
@@ -107,6 +108,20 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 			die("0");
 		
 		echo $this->send_user_money() ? "1" : "0";
+	}
+	
+	public function fetch_last_user_watched_vids($user_id){
+		// returns all the vids the user watched in the last 24 hours
+		
+		// INTERACTION WITH MYSQL 4
+		
+		/*
+		e.g.:
+			[{"start": "2017-01-01 00:05:01", "id": "1231233123", "url": "dancing_lovely_ponies.mp4", "timer": 43},
+			 {"start": "2017-01-01 00:06:25", "id": "5435234554", "url": "so_cute_kittens_adorable.mp4", "timer": 23},
+			 {"start": "2017-01-01 00:06:59", "id": "5675675645", "url": "mariah_carey_forever_and_ever.mp4", "timer": 67}]
+		
+		*/
 	}
 	
 	private function log_ip_action(){ 
