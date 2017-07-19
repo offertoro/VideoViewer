@@ -37,4 +37,4 @@ Some statements about VideoViewer's user sessions:
 1. The server side php file has some errors - please fix them. All methods in the VideoViewerV1 interface must be exposed and invokable by a client. The implementation in the server file MUST NOT trigger any error.
 2. Please provide a definition to the mysql db schema.
 3. Please implement the following methods in the server side php file: "create_session", "fulfill", "close_session", "fetch_last_user_watched_vids". You may change their signatures by changing the parameters they receive (just don't forget to change the interface too).
-4. If there's any need for some cron jobs, please implement 
+4. If there's any need for some cron jobs, please add the methods you need to the crons.php file under the server folder in this repo. Don't forget to explain how often or when the crons should run.
