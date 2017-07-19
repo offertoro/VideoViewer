@@ -33,7 +33,9 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		// if the user already has an open session then its session_id is returned
 		// otherwise a new session is created and its session_id is returned
 		
-		// INTERACTION WITH MYSQL 1 - fetch saved session_id
+		// INTERACTION WITH MYSQL 1 - fetch saved session_id or create a new session_id
+		
+		// $_POST contains the properties of the first video to watch (received earlier with "feed")
 		
 		echo $session_id;
 	}
@@ -61,6 +63,8 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		$is_error = false;
 		
 		// INTERACTION WITH MYSQL 2
+
+		// $_POST contains the properties of the next video to watch (received earlier with "feed")
 		
 		if ($is_error)
 			echo "0";
