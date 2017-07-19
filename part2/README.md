@@ -14,7 +14,7 @@ Tier 2 data is somewhere in between. Should feel comfortable with lots of INSERT
 For tier 1 data, PK columns must be defined appropriately in order to set a high bound for cardinality and make it finite. Using an INT column with AUTO_INCREMENT is a bad idea. Instead, if we already know that each ip (in the world) can have only one open session (concurrently) then maybe using the ip itself as the PK column might not be a bad idea. Setting the PK as INT with AUTO_INCREMENT is effectively removing any constraint on cardinality. Remember, we want to avoid INSERTs and DELETEs as much as possible.
 
 Tier 2 data tables, should also have some PK. Trying to avoid an INT with AUTO INCREMENT here too because INTs (unsigned bigints as well) reach their maximum. Well.. eventually. Some other information is required here for uniqueness, preferably a number and not a string (string manipulations cost much more cpu). To retain some degree of control over the cardinality of this db table (tier 2) we
-must DELETE outdated information from it. Maybe even pass it on to tier 3 systems before removing them completely.
+must DELETE outdated information from it. Maybe even pass it on to tier 3 systems before performing the DELETEs.
 
 In our example tier 3 data is kept on a remote server (so no need to define it here). Our local mysql db should hold only tier 1 and tier 2 data.
 
