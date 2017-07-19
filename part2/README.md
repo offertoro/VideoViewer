@@ -19,7 +19,7 @@ must DELETE outdated information from it. Maybe even pass it on to tier 3 system
 In our example tier 3 data is kept on a remote server (so no need to define it here). Our local mysql db should hold only tier 1 and tier 2 data.
 
 Some statements about VideoViewer's user sessions:
-* only one session can be opened per ip at the same time. (tier 1).
+* only one session can be opened per ip at the same time [tier 1].
 * a user session remains open for only 3 hours.
 * there must be a way to manually close a user's session without waiting for 3 hours.
 * if the user requests "fulfill" before the time is up for the video then nothing happens (it doesn't "fulfill"). The same goes for "close_session".
@@ -31,8 +31,9 @@ Some statements about VideoViewer's user sessions:
 * the user must pass the next video object it is going to watch to the "fulfill" request. a video can be "fulfilled" once its "timer" has passed since the last "fulfill". for example - the user has just finished watching video1 and trying to "fulfill". When requesting "fulfill" on video1 the user must also provide the details of the next video (video2 with "timer" set to 30 secs) it is about to watch. the user can "fulfill" video2 only 30 seconds after it has requested "fulfill" the last time (on video1).
 * the last "fulfill" in the session doesn't have to contain an object to the next video.
 * the user must request "close_session" after the last "fulfill" was requested to effectively close the session and (maybe) pay the user.
+* the system saves information about all videos every user watched ONLY in the last 24 hours [tier 2]
 
 ## Questions:
 1. The server side php file has some errors - please fix them. All methods in the VideoViewerV1 interface must be exposed and invokable by a client. The implementation in the server file MUST NOT trigger any error.
 2. Please provide a definition to the mysql db schema.
-3. Please implement the following methods in the server side php file: "create_session", "fulfill" and "close_session". You may change their signatures by changing the parameters they receive (just don't forget to change the interface too).
+3. Please implement the following methods in the server side php file: "create_session", "fulfill", "close_session", "fetch_last_user_watched_vids". You may change their signatures by changing the parameters they receive (just don't forget to change the interface too).
