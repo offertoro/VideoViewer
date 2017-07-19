@@ -29,16 +29,6 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		echo $this->html($user_id);
 	}
 	
-	public function create_session($user_id){
-		// if the user already has an open session then its session_id is returned
-		// otherwise a new session is created and its session_id is returned
-
-		// $_POST contains the properties of the first video to watch (received earlier with "feed")
-		// INTERACTION WITH MYSQL 1 - fetch saved session_id or create a new session_id
-		
-		echo $session_id;
-	}
-	
 	public function feed($user_id){
 		// returns JSON to the user with a list of videos to watch
 		// every request gives a new list with 200 unique and new items - no video is given more than once
@@ -77,6 +67,16 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 		
 		header('Content-type: application/json');
 		echo json_encode($vids);
+	}
+	
+	public function create_session($user_id){
+		// if the user already has an open session then its session_id is returned
+		// otherwise a new session is created and its session_id is returned
+
+		// $_POST contains the properties of the first video to watch (received earlier with "feed")
+		// INTERACTION WITH MYSQL 1 - fetch saved session_id or create a new session_id
+		
+		echo $session_id;
 	}
 	
 	public function fulfill($session_id, $user_id){
