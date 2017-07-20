@@ -5,7 +5,7 @@ We need to build a mysql db to hold most of the data. We would like to segregate
 
 We will try to VideoViewer information into these 3 tiers, which should be reflected in the db schema definition.
 As tier 1 data tends to hold little information (less than 100MB in our project) with a low and finite cardinality, tier 3 has essentially infinite cardinality therefore should be saved on low cost magnetic disks.
-In order to maintain low cardinality in tier 1 data, we need to estimate it beforehand to maximize SELECTs and UPDATEs and minimize INSERTs and DELETEs.
+In order to maintain low cardinality in tier 1 data, we need to estimate it beforehand to maximize SELECTs and UPDATEs and prevent INSERTs and DELETEs as much as possible.
 
 Tier 3 data systems can be developed as an operational historian software, like logstash, processing thousands of events per second, dividing the data further into sub tiers of availability (AWS Glacier as tier 4 data?). We would prefer mostly INSERTs on this tier, as data is likely to be saved in a time-series fashion (like an event).
 
