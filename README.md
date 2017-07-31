@@ -6,6 +6,8 @@ The server side is implemented in php/mysql and client side in HTML/JS and also 
 
 There are two parts to this test. Please provide a solution to the part you've been tasked to complete.
 
+It is encouraged that if and when you have questions you should talk with babin@offertoro.com to get answers for them!
+
 ## Definitions:
 * The VideoViewer server endpoint is at: http://videoviewer.com/ws.php (not really)
 * The VideoViewer HTML client side endpoint is at: http://videoviewer.com/index.php (not really)
