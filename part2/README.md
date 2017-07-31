@@ -26,7 +26,7 @@ In our example tier 3 data is kept on a remote server (so no need to define it h
 * there must be a way to manually close a user's session without waiting for 3 hours.
 * if the user requests "fulfill" before the time is up for the video then nothing happens (it doesn't "fulfill"). The same goes for "close_session".
 * a user must view the videos ONE AT A TIME in order to get paid. opening another client app from another computer under the same ip should not allow closing the session sooner than expected (nor paying the user).
-* every ip is allowed to open only 15 sessions per day. once 15 sessions were already closed for that ip, no more sessions can be opened that day [tier 1/2].
+* every ip is allowed to open only 15 sessions per day. once 15 sessions were already closed (15 completed sessions with success) for that ip, no more sessions can be opened that day [tier 1/2].
 * there must be a way to set a total number of sessions per day for all users. a user may not open a session if the total number of closed sessions for that day is reached - even if the user didn't reach its own 15 sessions per day [tier 1/2].
 * every video has a global unique id
 * the user must send the next video object it is going to watch (properties "id", "url", "timer" fetched earlier via the "feed" request) to "create_session". every new session must be initialized with the first video the user is going to watch. the first video can be "fulfilled" once its "timer" has passed since the session was created.
