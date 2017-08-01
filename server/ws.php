@@ -143,16 +143,19 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	}
 }
 
-if (!isset($_GET["method"]))
-	$method = "index";
-else
-	$method = $_GET["method"];
+$uri = $_SERVER["REQUEST_URI"];
+$route = explode("/", $uri);
+
+$method = urldecode(array_shift($route));
+
+$params = array();
+foreach ($route as $v)
+	$params[] = urldecode($v);
 
 $controller = "VideoViewerV1Impl";
 
 $reflectionMethod = new ReflectionMethod($controller, $method);
 $reflectionMethod->invokeArgs(new $controller(), $params);
-
 
 
 
