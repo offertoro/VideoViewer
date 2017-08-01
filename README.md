@@ -8,7 +8,7 @@ There are two parts to this test. Please provide a solution to the part you've b
 
 It is encouraged that if and when you have questions you should talk with babin@offertoro.com to get answers for them!
 
-## Definitions:
+## Protocol Definitions
 * The VideoViewer server endpoint is at: http://videoviewer.com/ws.php (not really)
 * The VideoViewer HTML client side endpoint is at: http://videoviewer.com/index.php (not really)
 * The VideoViewerV1 interface for client-server interaction is defined in the server php file:
