@@ -139,10 +139,7 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 
 		// INTERACTION WITH 3rd PARTY SERVER
 		
-		if ($is_error)
-			die("0");
-		
-		die("1");
+		return !$is_error;
 	}
 }
 
