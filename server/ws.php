@@ -62,7 +62,7 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 			if ($vid_name_id >= $vid_count)
 				$vid_name_id = 0;
 			
-			$vid_url = "http://videoviewer.com/videos/" . $popular_vid_names[$vid_name_id] . "_" . $vid_id;
+			$vid_url = "http://videoviewer.com/videos/" . $popular_vid_names[$vid_name_id] . "_" . $vid_id . ".mp4";
 		
 			$vids[] = array("id" => $vid_id, "url" => $vid_url, "timer" => $timer);
 		}
