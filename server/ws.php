@@ -143,6 +143,11 @@ class VideoViewerV1Impl implements VideoViewerV1 {
 	}
 }
 
+/*
+url rewrite to allow invoking index like this:
+http://videoviewer.com/index/user_id
+*/
+
 $uri = $_SERVER["REQUEST_URI"];
 $route = explode("/", $uri);
 
